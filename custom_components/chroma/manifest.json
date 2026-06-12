@@ -7,6 +7,6 @@
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/Vaskivskyi/ha-chroma/issues",
   "loggers": ["aiochroma"],
-  "requirements": ["aiochroma==1.0.0.dev0"],
-  "version": "1.0.0.dev0"
+  "requirements": ["aiochroma@git+https://github.com/westever66/aiochroma.git@dev"],
+  "version": "1.0.0.dev1"
 }
