@@ -1,10 +1,18 @@
 [![GitHub Release](https://img.shields.io/github/release/Vaskivskyi/ha-chroma.svg?style=for-the-badge&color=blue)](https://github.com/Vaskivskyi/ha-chroma/releases) [![License](https://img.shields.io/github/license/Vaskivskyi/ha-chroma.svg?style=for-the-badge&color=yellow)](https://github.com/Vaskivskyi/ha-chroma/blob/main/LICENSE) [![Community forum discussion](https://img.shields.io/badge/COMMUNITY-FORUM-success?style=for-the-badge&color=blue)](https://community.home-assistant.io/t/custom-component-chroma-integration-control-your-rgb/464511) [![Installations](https://img.shields.io/endpoint?url=https://vaskivskyi.github.io/ha-custom-analytics/badges/chroma/total.json&style=for-the-badge&color=yellow)](https://github.com/Vaskivskyi/ha-custom-analytics)
 
+## Chroma LAN fork
+
+This fork is maintained for controlling a Windows Razer Chroma SDK instance from a Home Assistant server running on another LAN machine. It adds a configurable SDK port and uses the session `uri` returned by the SDK/proxy.
+
+For the current LAN proxy setup, use:
+- Host: `192.168.0.52`
+- Port: `15435`
+
 ## Control your Chroma-enabled devices from Home Assistant
 
-`Chroma` is a custom integration for Home Assistant to control your Razer Chroma-enabled devices using the [AIOChroma](https://github.com/Vaskivskyi/aiochroma) python library.
+`Chroma LAN` is a custom integration for Home Assistant to control your Razer Chroma-enabled devices using the [forked AIOChroma](https://github.com/westever66/aiochroma) python library.
 
-Please, refer to the GitHub [Readme](https://github.com/Vaskivskyi/ha-chroma/) for detailed information on the available sensors and controls.
+Please, refer to the GitHub [Readme](https://github.com/westever66/ha-chroma/) for detailed information on the available sensors and controls.
 
 A short presentation of the features can be found in this [YouTube video](https://www.youtube.com/watch?v=ytdS9JUWSb4).
 
@@ -19,12 +27,13 @@ A short presentation of the features can be found in this [YouTube video](https:
 
 To connect you need to provide the following data:
 - IP address or hostname
+- SDK port
 - Which devices do you want to control (e.g. `chromalink`, `headset`, `keyboard`, `keypad`, `mouse`, `mousepad`)
 - Layout of your keyboard (if the `keyboard` option is selected)
 
 #### Allow the connection (adjust your firewall settings)
 
-In order to use the integration, you might need to adjust your firewall settings on the device with Chroma devices. Please, allow the incoming `TCP` connection on port `54236` from your HA instance. In case, this connection is not allowed, the integration will not be able to connect and might be stuck in the `configuring` state for an extended period.
+When using the LAN proxy, allow incoming `TCP` connections from the Home Assistant machine to the proxy entry port, for example `15435`, and to the session ports allocated by the proxy, for example `15436+`.
 
 #### Lights
 
@@ -32,7 +41,7 @@ The integration provides a light entity per each device selected during the conf
 
 #### Services
 
-The `chroma.service_send_message` service allows sending any string message to your per-key RGB keyboard. The message will be displayed symbol by symbol. Please, refer to the [how-to documentation](https://github.com/Vaskivskyi/ha-chroma/blob/main/docs/how-to.md) for more details.
+The `chroma.service_send_message` service allows sending any string message to your per-key RGB keyboard. The message will be displayed symbol by symbol. Please, refer to the [how-to documentation](https://github.com/westever66/ha-chroma/blob/dev/docs/how-to.md) for more details.
 
 Currently, the following keyboard layouts are supported: `EN_US`.
 
