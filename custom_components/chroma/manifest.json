@@ -1,11 +1,11 @@
 {
   "domain": "chroma",
-  "name": "Chroma",
-  "codeowners": ["@vaskivskyi"],
+  "name": "Chroma LAN",
+  "codeowners": ["@westever66"],
   "config_flow": true,
-  "documentation": "https://github.com/Vaskivskyi/ha-chroma",
+  "documentation": "https://github.com/westever66/ha-chroma",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/Vaskivskyi/ha-chroma/issues",
+  "issue_tracker": "https://github.com/westever66/ha-chroma/issues",
   "loggers": ["aiochroma"],
   "requirements": ["aiochroma@git+https://github.com/westever66/aiochroma.git@dev"],
   "version": "1.0.0.dev1"
